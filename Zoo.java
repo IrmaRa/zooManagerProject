@@ -1,16 +1,28 @@
 import java.util.ArrayList;
-import visitor.*;
+import visitors.*;
 import enclosures.*;
 
 public class Zoo {
   private int entryFee;
-  private ArraList<Visitor> visitors;
-  private ArraList<Enclosure> enclosures;
+  private int budget;
+  private ArrayList<Visitor> visitors;
+  private ArrayList<Enclosure> enclosures;
 
   public Zoo() {
-    entryFee = 15;
-    visitors = new ArrayList<Visitor>();
-    enclosures = new ArrayList<Enclosure>();
+    this.entryFee = 15;
+    this.budget = 0;
+    this.visitors = new ArrayList<Visitor>();
+    this.enclosures = new ArrayList<Enclosure>();
+  }
+
+  public int getBudget() {
+    return this.budget;
+  }
+
+  public void sellTicket(Visitor visitor) {
+    if(visitor.getAge() >= 10) {
+      budget += entryFee;
+    }
   }
 
 
