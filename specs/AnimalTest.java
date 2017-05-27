@@ -6,8 +6,8 @@ public class AnimalTest {
 
 @Test
 public void testAnimalHasName() {
-  Tiger tiger = new Tiger("Billy", 4);
-  assertEquals("Billy", tiger.getName());
+  Eagle eagle = new Eagle("Billy", 4, "Bird");
+  assertEquals("Billy", eagle.getName());
 }
 
 
