@@ -17,24 +17,23 @@ public class EnclosureTest {
   }
 
 
- @Test
- public void canCountAnimals() {
-  assertEquals(0, enclosure.animalCount());
- }
+  @Test
+  public void canCountAnimals() {
+    assertEquals(0, enclosure.animalCount());
+  }
 
- @Test
- public void canAddAnimal() {
-  enclosure.addAnimal(zebra);
-  assertEquals(1, enclosure.animalCount());
- }
+  @Test
+  public void canAddAnimal() {
+    enclosure.addAnimal(zebra);
+    assertEquals(1, enclosure.animalCount());
+  }
 
- @Test
- public void canRemoveAnimal() {
-  Enclosure enclosure = new Enclosure(500, Type.RAINFOREST);
-  enclosure.addAnimal(zebra);
-  enclosure.addAnimal(eagle);
-  enclosure.removeAnimal(zebra);
-  assertEquals(1, enclosure.animalCount());
-
- }
+  @Test
+  public void canRemoveAnimal() {
+    Enclosure enclosure = new Enclosure(500, Type.RAINFOREST);
+    enclosure.addAnimal(zebra);
+    enclosure.addAnimal(eagle);
+    enclosure.removeAnimal(zebra);
+    assertEquals(1, enclosure.animalCount());
+  }
 }
