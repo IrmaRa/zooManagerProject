@@ -1,3 +1,4 @@
+package zoo;
 import java.util.ArrayList;
 import visitors.*;
 import enclosures.*;
@@ -20,10 +21,17 @@ public class Zoo {
   }
 
   public void sellTicket(Visitor visitor) {
-    if(visitor.getAge() >= 10) {
+    if(visitor.getAge() > 10) {
       budget += entryFee;
     }
   }
 
+  public void addEnclosure(Enclosure enclosure) {
+    this.enclosures.add(enclosure);
+  }
+
+  public int enclosureCount() {
+    return this.enclosures.size();
+  } 
 
 }
