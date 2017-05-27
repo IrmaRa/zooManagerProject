@@ -34,4 +34,8 @@ public class Enclosure {
     this.animals.add(animal);
   }
 
+  public void removeAnimal(Animal animal) {
+    this.animals.remove(animal);
+  }
+
 }

@@ -5,18 +5,36 @@ import enclosures.*;
 import animals.*;
 
 public class EnclosureTest {
+  Enclosure enclosure;
+  Zebra zebra;
+  Eagle eagle;
+
+  @Before
+  public void before() {
+    enclosure = new Enclosure(1000, Type.GRASSLAND);
+    zebra = new Zebra("Bob", 7, "Mammal");
+    eagle = new Eagle("Mark", 10, "Bird");
+  }
+
 
  @Test
  public void canCountAnimals() {
-  Enclosure enclosure = new Enclosure(1000, Type.GRASSLAND);
   assertEquals(0, enclosure.animalCount());
  }
 
  @Test
  public void canAddAnimal() {
-  Zebra zebra = new Zebra("Bob", 7, "Mammal");
-  Enclosure enclosure = new Enclosure(1000, Type.GRASSLAND);
   enclosure.addAnimal(zebra);
   assertEquals(1, enclosure.animalCount());
+ }
+
+ @Test
+ public void canRemoveAnimal() {
+  Enclosure enclosure = new Enclosure(500, Type.RAINFOREST);
+  enclosure.addAnimal(zebra);
+  enclosure.addAnimal(eagle);
+  enclosure.removeAnimal(zebra);
+  assertEquals(1, enclosure.animalCount());
+
  }
 }
