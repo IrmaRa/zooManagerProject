@@ -24,6 +24,11 @@ public class Zoo {
     if(visitor.getAge() > 10) {
       budget += entryFee;
     }
+    this.visitors.add(visitor);
+  }
+
+  public int visitorCount() {
+    return this.visitors.size();
   }
 
   public void addEnclosure(Enclosure enclosure) {
