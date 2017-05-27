@@ -30,4 +30,8 @@ public class Enclosure {
     return this.animals.size();
   }
 
+  public void addAnimal(Animal animal) {
+    this.animals.add(animal);
+  }
+
 }
