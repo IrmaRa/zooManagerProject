@@ -14,7 +14,6 @@ public Animal(String name, int age, String group) {
   this.age = age;
   this.group = group;
   this.belly = new ArrayList<Edible>();
-
 }
 
 public String getName() {
