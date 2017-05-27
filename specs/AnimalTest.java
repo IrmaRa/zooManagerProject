@@ -7,20 +7,16 @@ public class AnimalTest {
 
 @Test
 public void animalHasName() {
-  Eagle eagle = new Eagle("Billy", 4, "Bird");
+  Eagle eagle = new Eagle("Billy", 4, Group.BIRD);
   assertEquals("Billy", eagle.getName());
 }
 
 @Test
 public void canEatPlant() {
-  Koala koala = new Koala("Sarah", 1, "Mammal");
+  Koala koala = new Koala("Sarah", 1, Group.MAMMAL);
   Plant bamboo = new Plant();
   koala.eat(bamboo);
   assertEquals(1, koala.foodCount());
 }
-
-
-
-
 
 }
