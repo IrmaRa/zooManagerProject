@@ -7,6 +7,7 @@ public abstract class Animal {
   private int age;
   private Classification classification;
   private ArrayList<Edible> belly;
+  private int price;
 
 
 public Animal(String name, int age, Classification classification) {
@@ -14,6 +15,7 @@ public Animal(String name, int age, Classification classification) {
   this.age = age;
   this.classification = classification;
   this.belly = new ArrayList<Edible>();
+  this.price = price;
 }
 
 public String getName() {

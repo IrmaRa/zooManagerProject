@@ -2,21 +2,26 @@ package zoo;
 import java.util.ArrayList;
 import visitors.*;
 import enclosures.*;
+import animals.*;
 
 
 public class Zoo {
   private int tickets;
   private int entryFee;
   private int budget;
+  private int babyAnimalPrice;
   private ArrayList<Visitor> visitors;
   private ArrayList<Enclosure> enclosures;
+  private ArrayList<Animal> animals;
 
   public Zoo() {
     this.tickets = 100;
     this.entryFee = 15;
     this.budget = 0;
+    this.babyAnimalPrice = 100;
     this.visitors = new ArrayList<Visitor>();
     this.enclosures = new ArrayList<Enclosure>();
+    this.animals = new ArrayList<Animal>();
   }
 
   public int getBudget() {
@@ -50,5 +55,12 @@ public class Zoo {
   public int enclosureCount() {
     return this.enclosures.size();
   } 
+
+  public void sellBabyAnimal(Animal animal, Enclosure enclosure) {
+   if(animal.getAge() <= 1) {
+    this.budget += this.babyAnimalPrice;
+    enclosure.removeAnimal(animal);
+  }
+}
 
 }

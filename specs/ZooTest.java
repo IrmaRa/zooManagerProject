@@ -59,4 +59,14 @@ public class ZooTest {
     assertEquals(99, zoo.getTickets());
   }
 
+  @Test
+  public void canSellBabyAnimal() {
+    Mammal koala = new Mammal("Sarah", 1, Classification.HERBIVORE);
+    Enclosure enclosure = new Enclosure(1000, Type.BUSH);
+    enclosure.addFirstAnimal(koala);
+    zoo.sellBabyAnimal(koala, enclosure);
+    assertEquals(100, zoo.getBudget());
+    assertEquals(0, enclosure.animalCount());
+  }
+
 }
