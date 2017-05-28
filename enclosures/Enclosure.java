@@ -1,5 +1,6 @@
 package enclosures;
 import java.util.ArrayList;
+import java.util.Random;
 import animals.*;
 
 public class Enclosure {
@@ -7,6 +8,7 @@ public class Enclosure {
   private ArrayList<Animal> animals;
   private int size;
   private Type type;
+  private Random randomGenerator = new Random();
 
   public Enclosure(int size, Type type) {
     this.animals = new ArrayList<Animal>();
@@ -44,5 +46,12 @@ public class Enclosure {
   public void removeAnimal(Animal animal) {
     this.animals.remove(animal);
   }
+
+  public String getEscapedAnimal() {
+    int index = randomGenerator.nextInt(this.animals.size());
+    Animal escapedAnimal = this.animals.get(index);
+    return escapedAnimal.getName();
+  } 
+
 
 }

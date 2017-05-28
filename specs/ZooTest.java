@@ -3,6 +3,7 @@ import static org.junit.Assert.assertEquals;
 import zoo.*;
 import visitors.*;
 import enclosures.*;
+import animals.*;
 
 
 public class ZooTest {
@@ -53,7 +54,7 @@ public class ZooTest {
   }
 
   @Test
-  public void canDecreaseTicketsNumberAfterSeelingOne() {
+  public void canDecreaseTicketsNumberAfterSellingOne() {
     zoo.sellTicket(adultVisitor);
     assertEquals(99, zoo.getTickets());
   }

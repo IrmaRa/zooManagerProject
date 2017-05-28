@@ -58,4 +58,11 @@ public class EnclosureTest {
     enclosure.checkAnimals(zebra, lion);
     assertEquals(1, enclosure.animalCount());
   }
+
+  @Test
+  public void canGetEscapedAnimal() {
+    enclosure.addAnimal(zebra);
+    enclosure.addAnimal(koala);
+    assertEquals("Bob", enclosure.getEscapedAnimal());
+  }
 }

@@ -6,5 +6,4 @@ public class Bird extends Animal {
     super(name, age, classification);
   }
 
-
 }
