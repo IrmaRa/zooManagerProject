@@ -44,4 +44,14 @@ public class ZooTest {
     assertEquals(2, zoo.visitorCount());
   }
 
+  @Test
+  public void canRemoveVisitor() {
+    Visitor adultVisitor = new Visitor(25);
+    Visitor kidVisitor = new Visitor(5);
+    zoo.sellTicket(adultVisitor);
+    zoo.sellTicket(kidVisitor);
+    zoo.removeVisitor(kidVisitor);
+    assertEquals(1, zoo.visitorCount());
+  }
+
 }

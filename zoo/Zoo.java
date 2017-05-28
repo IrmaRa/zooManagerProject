@@ -31,6 +31,10 @@ public class Zoo {
     return this.visitors.size();
   }
 
+  public void removeVisitor(Visitor visitor) {
+    this.visitors.remove(visitor);
+  }
+
   public void addEnclosure(Enclosure enclosure) {
     this.enclosures.add(enclosure);
   }
