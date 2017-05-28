@@ -28,7 +28,7 @@ public class Zoo {
 
   public void sellTicket(Visitor visitor) {
     if(visitor.getAge() > 10 && this.tickets != 0) {
-      budget += entryFee;
+      this.budget += this.entryFee;
     }
     this.visitors.add(visitor);
     this.tickets -= 1;
