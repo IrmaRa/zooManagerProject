@@ -4,12 +4,14 @@ import visitors.*;
 import enclosures.*;
 
 public class Zoo {
+  private int tickets;
   private int entryFee;
   private int budget;
   private ArrayList<Visitor> visitors;
   private ArrayList<Enclosure> enclosures;
 
   public Zoo() {
+    this.tickets = 100;
     this.entryFee = 15;
     this.budget = 0;
     this.visitors = new ArrayList<Visitor>();
@@ -20,11 +22,16 @@ public class Zoo {
     return this.budget;
   }
 
+  public int getTickets() {
+    return this.tickets;
+  }
+
   public void sellTicket(Visitor visitor) {
-    if(visitor.getAge() > 10) {
+    if(visitor.getAge() > 10 && this.tickets != 0) {
       budget += entryFee;
     }
     this.visitors.add(visitor);
+    this.tickets -= 1;
   }
 
   public int visitorCount() {

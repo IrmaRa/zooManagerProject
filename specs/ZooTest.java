@@ -8,23 +8,25 @@ import enclosures.*;
 public class ZooTest {
 
   Zoo zoo;
+  Visitor adultVisitor;
+  Visitor kidVisitor;
 
   @Before 
   public void before() {
     zoo = new Zoo();
+    adultVisitor = new Visitor(25);
+    kidVisitor = new Visitor(5);
   }
 
   @Test
   public void canSellTicket() {
-    Visitor visitor = new Visitor(25);
-    zoo.sellTicket(visitor);
+    zoo.sellTicket(adultVisitor);
     assertEquals(15, zoo.getBudget());
   }
 
   @Test
   public void canSellTicketButNotCharge() {
-    Visitor visitor = new Visitor(5);
-    zoo.sellTicket(visitor);
+    zoo.sellTicket(kidVisitor);
     assertEquals(0, zoo.getBudget());
   }
 
@@ -37,8 +39,6 @@ public class ZooTest {
 
   @Test
   public void canAddVisitor() {
-    Visitor adultVisitor = new Visitor(25);
-    Visitor kidVisitor = new Visitor(5);
     zoo.sellTicket(adultVisitor);
     zoo.sellTicket(kidVisitor);
     assertEquals(2, zoo.visitorCount());
@@ -46,12 +46,16 @@ public class ZooTest {
 
   @Test
   public void canRemoveVisitor() {
-    Visitor adultVisitor = new Visitor(25);
-    Visitor kidVisitor = new Visitor(5);
     zoo.sellTicket(adultVisitor);
     zoo.sellTicket(kidVisitor);
     zoo.removeVisitor(kidVisitor);
     assertEquals(1, zoo.visitorCount());
+  }
+
+  @Test
+  public void canDecreaseTicketsNumberAfterSeelingOne() {
+    zoo.sellTicket(adultVisitor);
+    assertEquals(99, zoo.getTickets());
   }
 
 }
