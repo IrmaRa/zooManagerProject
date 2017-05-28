@@ -56,11 +56,12 @@ public class Zoo {
     return this.enclosures.size();
   } 
 
-  public void sellBabyAnimal(Animal animal, Enclosure enclosure) {
+  public String sellBabyAnimal(Animal animal, Enclosure enclosure) {
    if(animal.getAge() <= 1) {
     this.budget += this.babyAnimalPrice;
     enclosure.removeAnimal(animal);
   }
+  return "Animal is too old to be sold.";
 }
 
 }

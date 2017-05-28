@@ -69,4 +69,12 @@ public class ZooTest {
     assertEquals(0, enclosure.animalCount());
   }
 
+  @Test
+  public void cannotSellAnimalIfOlderThanOneYear() {
+    Mammal koala = new Mammal("Sarah", 5, Classification.HERBIVORE);
+    Enclosure enclosure = new Enclosure(1000, Type.BUSH);
+    enclosure.addFirstAnimal(koala);
+    assertEquals("Animal is too old to be sold.", zoo.sellBabyAnimal(koala, enclosure));
+  }
+
 }
