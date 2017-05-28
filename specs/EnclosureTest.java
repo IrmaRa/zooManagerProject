@@ -6,16 +6,16 @@ import animals.*;
 
 public class EnclosureTest {
   Enclosure enclosure;
-  Zebra zebra;
-  Eagle eagle;
-  Koala koala;
+  Mammal zebra;
+  Mammal lion;
+  Mammal koala;
 
   @Before
   public void before() {
     enclosure = new Enclosure(1000, Type.GRASSLAND);
-    zebra = new Zebra("Bob", 7, Group.MAMMAL, Classification.HERBIVORE);
-    eagle = new Eagle("Mark", 10, Group.BIRD, Classification.CARNIVORE);
-    koala = new Koala("Henry", 1, Group.MAMMAL, Classification.HERBIVORE);
+    zebra = new Mammal("Bob", 7, Classification.HERBIVORE);
+    lion = new Mammal("Mark", 10, Classification.CARNIVORE);
+    koala = new Mammal("Henry", 1, Classification.HERBIVORE);
   }
 
 
@@ -28,7 +28,7 @@ public class EnclosureTest {
   public void canRemoveAnimal() {
     Enclosure enclosure = new Enclosure(500, Type.RAINFOREST);
     enclosure.addAnimal(zebra);
-    enclosure.addAnimal(eagle);
+    enclosure.addAnimal(lion);
     enclosure.removeAnimal(zebra);
     assertEquals(1, enclosure.animalCount());
   }
@@ -49,13 +49,13 @@ public class EnclosureTest {
   @Test
   public void canCheckIfAnimalsCanStayTogetherNegativeExample1() {
     enclosure.addAnimal(zebra);
-    assertEquals("You can't put different classification animals to the same enclosure. Add a new enclosure.", enclosure.checkAnimals(zebra, eagle));
+    assertEquals("You can't put different classification animals to the same enclosure. Add a new enclosure.", enclosure.checkAnimals(zebra, lion));
   }
 
   @Test
   public void canCheckIfAnimalsCanStayTogetherNegativeExample2() {
     enclosure.addAnimal(zebra);
-    enclosure.checkAnimals(zebra, eagle);
+    enclosure.checkAnimals(zebra, lion);
     assertEquals(1, enclosure.animalCount());
   }
 }

@@ -7,13 +7,13 @@ public class AnimalTest {
 
 @Test
 public void animalHasName() {
-  Eagle eagle = new Eagle("Billy", 4, Group.BIRD, Classification.CARNIVORE);
+  Bird eagle = new Bird("Billy", 4, Classification.CARNIVORE);
   assertEquals("Billy", eagle.getName());
 }
 
 @Test
 public void canEatPlant() {
-  Koala koala = new Koala("Sarah", 1, Group.MAMMAL, Classification.HERBIVORE);
+  Mammal koala = new Mammal("Sarah", 1, Classification.HERBIVORE);
   Plant bamboo = new Plant();
   koala.eat(bamboo);
   assertEquals(1, koala.foodCount());

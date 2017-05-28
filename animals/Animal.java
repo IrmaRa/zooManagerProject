@@ -5,15 +5,13 @@ import food.*;
 public abstract class Animal {
   private String name;
   private int age;
-  private Group group;
   private Classification classification;
   private ArrayList<Edible> belly;
 
 
-public Animal(String name, int age, Group group, Classification classification) {
+public Animal(String name, int age, Classification classification) {
   this.name = name;
   this.age = age;
-  this.group = group;
   this.classification = classification;
   this.belly = new ArrayList<Edible>();
 }
@@ -24,10 +22,6 @@ public String getName() {
 
 public int getAge() {
   return this.age;
-}
-
-public Group getGroup() {
-  return this.group;
 }
 
 public Classification getClassification() {
