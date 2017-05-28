@@ -11,24 +11,28 @@ public class ZooTest {
   Zoo zoo;
   Visitor adultVisitor;
   Visitor kidVisitor;
+  Mammal koala;
+  Enclosure enclosure;
 
   @Before 
   public void before() {
     zoo = new Zoo();
     adultVisitor = new Visitor(25);
     kidVisitor = new Visitor(5);
+    koala = new Mammal("Sarah", 1, Classification.HERBIVORE);
+    enclosure = new Enclosure(1000, Type.BUSH);
   }
 
   @Test
   public void canSellTicket() {
     zoo.sellTicket(adultVisitor);
-    assertEquals(15, zoo.getBudget());
+    assertEquals(15, zoo.getIncome());
   }
 
   @Test
   public void canSellTicketButNotCharge() {
     zoo.sellTicket(kidVisitor);
-    assertEquals(0, zoo.getBudget());
+    assertEquals(0, zoo.getIncome());
   }
 
   @Test
@@ -61,20 +65,26 @@ public class ZooTest {
 
   @Test
   public void canSellBabyAnimal() {
-    Mammal koala = new Mammal("Sarah", 1, Classification.HERBIVORE);
-    Enclosure enclosure = new Enclosure(1000, Type.BUSH);
     enclosure.addFirstAnimal(koala);
     zoo.sellBabyAnimal(koala, enclosure);
-    assertEquals(100, zoo.getBudget());
+    assertEquals(100, zoo.getIncome());
     assertEquals(0, enclosure.animalCount());
   }
 
   @Test
-  public void cannotSellAnimalIfOlderThanOneYear() {
-    Mammal koala = new Mammal("Sarah", 5, Classification.HERBIVORE);
-    Enclosure enclosure = new Enclosure(1000, Type.BUSH);
-    enclosure.addFirstAnimal(koala);
-    assertEquals("Animal is too old to be sold.", zoo.sellBabyAnimal(koala, enclosure));
+  public void canNotSellAnimalIfOlderThanOneYear() {
+    Mammal zebra = new Mammal("Linda", 5, Classification.HERBIVORE);
+    enclosure.addFirstAnimal(zebra);
+    assertEquals("Animal is too old to be sold.", zoo.sellBabyAnimal(zebra, enclosure));
   }
+
+  @Test
+  public void canGetTotalIncome() {
+    enclosure.addFirstAnimal(koala);
+    zoo.sellBabyAnimal(koala, enclosure);
+    zoo.sellTicket(adultVisitor);
+    assertEquals(115, zoo.getIncome());
+  }
+
 
 }

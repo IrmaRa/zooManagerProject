@@ -8,7 +8,7 @@ import animals.*;
 public class Zoo {
   private int tickets;
   private int entryFee;
-  private int budget;
+  private int income;
   private int babyAnimalPrice;
   private ArrayList<Visitor> visitors;
   private ArrayList<Enclosure> enclosures;
@@ -17,15 +17,15 @@ public class Zoo {
   public Zoo() {
     this.tickets = 100;
     this.entryFee = 15;
-    this.budget = 0;
+    this.income = 0;
     this.babyAnimalPrice = 100;
     this.visitors = new ArrayList<Visitor>();
     this.enclosures = new ArrayList<Enclosure>();
     this.animals = new ArrayList<Animal>();
   }
 
-  public int getBudget() {
-    return this.budget;
+  public int getIncome() {
+    return this.income;
   }
 
   public int getTickets() {
@@ -34,7 +34,7 @@ public class Zoo {
 
   public void sellTicket(Visitor visitor) {
     if(visitor.getAge() > 10 && this.tickets != 0) {
-      this.budget += this.entryFee;
+      this.income += this.entryFee;
     }
     this.visitors.add(visitor);
     this.tickets -= 1;
@@ -58,7 +58,7 @@ public class Zoo {
 
   public String sellBabyAnimal(Animal animal, Enclosure enclosure) {
    if(animal.getAge() <= 1) {
-    this.budget += this.babyAnimalPrice;
+    this.income += this.babyAnimalPrice;
     enclosure.removeAnimal(animal);
   }
   return "Animal is too old to be sold.";
