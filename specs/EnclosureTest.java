@@ -27,42 +27,41 @@ public class EnclosureTest {
   @Test
   public void canRemoveAnimal() {
     Enclosure enclosure = new Enclosure(500, Type.RAINFOREST);
-    enclosure.addAnimal(zebra);
-    enclosure.addAnimal(lion);
+    enclosure.addFirstAnimal(zebra);
     enclosure.removeAnimal(zebra);
-    assertEquals(1, enclosure.animalCount());
+    assertEquals(0, enclosure.animalCount());
   }
 
   @Test 
-  public void canAddAnimal() {
-    enclosure.addAnimal(zebra);
+  public void canAddFirstAnimal() {
+    enclosure.addFirstAnimal(zebra);
     assertEquals(1, enclosure.animalCount());
   }
 
   @Test
   public void canCheckIfAnimalsCanStayTogetherPositiveExample() {
-    enclosure.addAnimal(zebra);
-    enclosure.checkAnimals(zebra, koala);
+    enclosure.addFirstAnimal(zebra);
+    enclosure.addNewAnimal(zebra, koala);
     assertEquals(2, enclosure.animalCount());
   }
 
   @Test
   public void canCheckIfAnimalsCanStayTogetherNegativeExample1() {
-    enclosure.addAnimal(zebra);
-    assertEquals("You can't put different classification animals to the same enclosure. Add a new enclosure.", enclosure.checkAnimals(zebra, lion));
+    enclosure.addFirstAnimal(zebra);
+    assertEquals("You can't put different classification animals to the same enclosure. Add a new enclosure.", enclosure.addNewAnimal(zebra, lion));
   }
 
   @Test
   public void canCheckIfAnimalsCanStayTogetherNegativeExample2() {
-    enclosure.addAnimal(zebra);
-    enclosure.checkAnimals(zebra, lion);
+    enclosure.addFirstAnimal(zebra);
+    enclosure.addNewAnimal(zebra, lion);
     assertEquals(1, enclosure.animalCount());
   }
 
   @Test
   public void canGetEscapedAnimal() {
-    enclosure.addAnimal(zebra);
-    enclosure.addAnimal(koala);
+    enclosure.addFirstAnimal(zebra);
+    enclosure.addNewAnimal(zebra, koala);
     assertEquals("Bob", enclosure.getEscapedAnimal());
   }
 }

@@ -32,13 +32,15 @@ public class Enclosure {
     return this.animals.size();
   }
 
-  public void addAnimal(Animal animal) {
+  public void addFirstAnimal(Animal animal) {
+    if(this.animals.size() == 0) {
       this.animals.add(animal);
+    }
   }
 
-  public String checkAnimals(Animal animal1, Animal animal2) {
-    if(animal1.getClassification().equals(animal2.getClassification())) {
-      this.animals.add(animal2);
+  public String addNewAnimal(Animal animal, Animal newAnimal) {
+    if(animal.getClassification().equals(newAnimal.getClassification())) {
+      this.animals.add(newAnimal);
     }
       return "You can't put different classification animals to the same enclosure. Add a new enclosure.";
   }
