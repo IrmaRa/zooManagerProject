@@ -12,8 +12,8 @@ public class EnclosureTest {
   @Before
   public void before() {
     enclosure = new Enclosure(1000, Type.GRASSLAND);
-    zebra = new Zebra("Bob", 7, Group.MAMMAL);
-    eagle = new Eagle("Mark", 10, Group.BIRD);
+    zebra = new Zebra("Bob", 7, Group.MAMMAL, Classification.HERBIVORE);
+    eagle = new Eagle("Mark", 10, Group.BIRD, Classification.CARNIVORE);
   }
 
 
