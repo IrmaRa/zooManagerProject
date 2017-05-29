@@ -10,7 +10,7 @@ public abstract class Animal {
   private int price;
 
 
-public Animal(String name, int age, Classification classification) {
+public Animal(String name, int age, Classification classification, int price) {
   this.name = name;
   this.age = age;
   this.classification = classification;
@@ -28,6 +28,10 @@ public int getAge() {
 
 public Classification getClassification() {
   return this.classification;
+}
+
+public int getPrice() {
+  return this.price;
 }
 
 public int foodCount() {

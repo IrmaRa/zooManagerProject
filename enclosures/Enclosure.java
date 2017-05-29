@@ -49,11 +49,11 @@ public class Enclosure {
     this.animals.remove(animal);
   }
 
-  public String getEscapedAnimal() {
+  public Animal getEscapedAnimal() {
     int index = randomGenerator.nextInt(this.animals.size());
     Animal escapedAnimal = this.animals.get(index);
     this.animals.remove(escapedAnimal);
-    return escapedAnimal.getName();
+    return escapedAnimal;
   } 
 
 }

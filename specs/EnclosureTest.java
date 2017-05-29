@@ -13,9 +13,9 @@ public class EnclosureTest {
   @Before
   public void before() {
     enclosure = new Enclosure(1000, Type.GRASSLAND);
-    zebra = new Mammal("Bob", 7, Classification.HERBIVORE);
-    lion = new Mammal("Mark", 10, Classification.CARNIVORE);
-    koala = new Mammal("Henry", 1, Classification.HERBIVORE);
+    zebra = new Mammal("Bob", 7, Classification.HERBIVORE, 300);
+    lion = new Mammal("Mark", 10, Classification.CARNIVORE, 500);
+    koala = new Mammal("Henry", 1, Classification.HERBIVORE, 200);
   }
 
   @Test
@@ -62,7 +62,7 @@ public class EnclosureTest {
   // public void canGetEscapedAnimal() {
   //   enclosure.addFirstAnimal(zebra);
   //   enclosure.addNewAnimal(zebra, koala);
-  //   assertEquals("Bob", enclosure.getEscapedAnimal());
+  //   assertEquals("Bob", enclosure.getEscapedAnimal().getName());
   // }
 
   @Test
