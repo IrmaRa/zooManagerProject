@@ -86,5 +86,4 @@ public class ZooTest {
     assertEquals(115, zoo.getIncome());
   }
 
-
 }

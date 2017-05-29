@@ -18,7 +18,6 @@ public class EnclosureTest {
     koala = new Mammal("Henry", 1, Classification.HERBIVORE);
   }
 
-
   @Test
   public void canCountAnimals() {
     assertEquals(0, enclosure.animalCount());
@@ -58,7 +57,6 @@ public class EnclosureTest {
     assertEquals(1, enclosure.animalCount());
   }
 
-
   // tested if method works, commented out because returns random result
   // @Test
   // public void canGetEscapedAnimal() {
@@ -66,4 +64,12 @@ public class EnclosureTest {
   //   enclosure.addNewAnimal(zebra, koala);
   //   assertEquals("Bob", enclosure.getEscapedAnimal());
   // }
+
+  @Test
+  public void canRemoveEscapedAnimalFromEnclosure() {
+    enclosure.addFirstAnimal(zebra);
+    enclosure.addNewAnimal(zebra, koala);
+    enclosure.getEscapedAnimal();
+    assertEquals(1, enclosure.animalCount());
+  }
 }
