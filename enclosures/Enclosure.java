@@ -48,6 +48,16 @@ public class Enclosure {
     this.animals.remove(animal);
   }
 
+  public void removeAnimalByName(String name) {
+    for (Animal animal : new ArrayList<>(animals)) {
+
+      if (animal.getName().equals(name)) {
+        animals.remove(animal);
+      }
+
+    }
+  }
+
   public Animal getEscapedAnimal() {
     int index = randomGenerator.nextInt(this.animals.size());
     Animal escapedAnimal = this.animals.get(index);

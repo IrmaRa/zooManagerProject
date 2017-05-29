@@ -19,6 +19,16 @@ public class EnclosureTest {
   }
 
   @Test
+  public void hasSize() {
+    assertEquals(1000, enclosure.getSize());
+  }
+
+  @Test 
+  public void hasType() {
+    assertEquals(Type.GRASSLAND, enclosure.getType());
+  }
+
+  @Test
   public void canCountAnimals() {
     assertEquals(0, enclosure.animalCount());
   }
@@ -28,6 +38,14 @@ public class EnclosureTest {
     Enclosure enclosure = new Enclosure(500, Type.RAINFOREST);
     enclosure.addFirstAnimal(zebra);
     enclosure.removeAnimal(zebra);
+    assertEquals(0, enclosure.animalCount());
+  }
+
+  @Test
+  public void canRemoveAnimalByName() {
+    Enclosure enclosure = new Enclosure(500, Type.RAINFOREST);
+    enclosure.addFirstAnimal(zebra);
+    enclosure.removeAnimalByName("Bob");
     assertEquals(0, enclosure.animalCount());
   }
 
@@ -45,14 +63,7 @@ public class EnclosureTest {
   }
 
   @Test
-  public void canCheckIfAnimalsCanStayTogetherNegativeExample1() {
-    enclosure.addFirstAnimal(zebra);
-    enclosure.addNewAnimal(zebra, lion);
-    assertEquals(1, enclosure.animalCount());
-  }
-
-  @Test
-  public void canCheckIfAnimalsCanStayTogetherNegativeExample2() {
+  public void canCheckIfAnimalsCanStayTogetherNegativeExample() {
     enclosure.addFirstAnimal(zebra);
     enclosure.addNewAnimal(zebra, lion);
     assertEquals(1, enclosure.animalCount());

@@ -5,16 +5,36 @@ import food.*;
 
 public class AnimalTest {
 
+  Bird eagle;
+
+  @Before
+  public void before() {
+  eagle = new Bird("Billy", 4, Classification.CARNIVORE, 50);
+  }
+
 @Test
 public void animalHasName() {
-  Bird eagle = new Bird("Billy", 4, Classification.CARNIVORE, 50);
   assertEquals("Billy", eagle.getName());
 }
 
 @Test
+public void animalHasAge() {
+  assertEquals(4, eagle.getAge());
+}
+
+@Test
+public void animalHasClassification() {
+  assertEquals(Classification.CARNIVORE, eagle.getClassification());
+}
+
+@Test
 public void animalHasPrice() {
-  Bird eagle = new Bird("Billy", 4, Classification.CARNIVORE, 50);
   assertEquals(50, eagle.getPrice());
+}
+
+@Test
+public void canCountFoodInBelly() {
+  assertEquals(0, eagle.foodCount());
 }
 
 @Test
@@ -27,7 +47,7 @@ public void canEatPlant() {
 
 @Test
 public void canNotEatPlant() {
-  Bird eagle = new Bird("Billy", 4, Classification.CARNIVORE, 50);
+  Bird lion = new Bird("George", 7, Classification.CARNIVORE, 500);
   Plant bamboo = new Plant();
   eagle.eatPlant(bamboo);
   assertEquals(0, eagle.foodCount());
@@ -35,7 +55,7 @@ public void canNotEatPlant() {
 
 @Test
 public void canEatMeat() {
-  Bird eagle = new Bird("Billy", 4, Classification.CARNIVORE, 50);
+  Bird lion = new Bird("George", 7, Classification.CARNIVORE, 500);
   Meat rabbit = new Meat();
   eagle.eatMeat(rabbit);
   assertEquals(1, eagle.foodCount());
@@ -49,6 +69,17 @@ public void canNotEatPlantAndMeat() {
   bear.eatPlant(bamboo);
   bear.eatMeat(rabbit);
   assertEquals(2, bear.foodCount());
+}
+
+@Test
+public void canEmptyBelly() {
+  Mammal bear = new Mammal("John", 2, Classification.OMNIVORE, 400);
+  Plant bamboo = new Plant();
+  Meat rabbit = new Meat();
+  bear.eatPlant(bamboo);
+  bear.eatMeat(rabbit);
+  bear.sleep();
+  assertEquals(0, bear.foodCount());
 }
 
 }
