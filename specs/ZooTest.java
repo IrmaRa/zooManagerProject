@@ -24,6 +24,16 @@ public class ZooTest {
   }
 
   @Test
+  public void hasIncome() {
+    assertEquals(0, zoo.getIncome());
+  }
+
+  @Test
+  public void hasTickets() {
+    assertEquals(100, zoo.getTickets());
+  }
+
+  @Test
   public void canSellTicket() {
     zoo.sellTicket(adultVisitor);
     assertEquals(15, zoo.getIncome());
