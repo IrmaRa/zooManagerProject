@@ -1,5 +1,6 @@
 package zoo;
 import java.util.ArrayList;
+import java.util.HashMap;
 import visitors.*;
 import enclosures.*;
 import animals.*;
@@ -10,7 +11,7 @@ public class Zoo {
   private int entryFee;
   private int income;
   private ArrayList<Visitor> visitors;
-  private ArrayList<Enclosure> enclosures;
+  private HashMap<Type, Enclosure> enclosures;
   private ArrayList<Animal> animals;
 
   public Zoo() {
@@ -18,7 +19,7 @@ public class Zoo {
     this.entryFee = 15;
     this.income = 0;
     this.visitors = new ArrayList<Visitor>();
-    this.enclosures = new ArrayList<Enclosure>();
+    this.enclosures = new HashMap<Type, Enclosure>();
     this.animals = new ArrayList<Animal>();
   }
 
@@ -47,19 +48,18 @@ public class Zoo {
   }
 
   public void addEnclosure(Enclosure enclosure) {
-    this.enclosures.add(enclosure);
+    this.enclosures.put(enclosure.getType(), enclosure);
   }
 
   public int enclosureCount() {
     return this.enclosures.size();
   } 
 
-  public String sellBabyAnimal(Animal animal, Enclosure enclosure) {
+  public void sellBabyAnimal(Animal animal, Enclosure enclosure) {
    if(animal.getAge() <= 1) {
     this.income += animal.getPrice();
     enclosure.removeAnimal(animal);
   }
-  return "Animal is too old to be sold.";
 }
 
 }

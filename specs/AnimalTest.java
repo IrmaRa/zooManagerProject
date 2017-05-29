@@ -21,8 +21,34 @@ public void animalHasPrice() {
 public void canEatPlant() {
   Mammal koala = new Mammal("Sarah", 1, Classification.HERBIVORE, 200);
   Plant bamboo = new Plant();
-  koala.eat(bamboo);
+  koala.eatPlant(bamboo);
   assertEquals(1, koala.foodCount());
+}
+
+@Test
+public void canNotEatPlant() {
+  Bird eagle = new Bird("Billy", 4, Classification.CARNIVORE, 50);
+  Plant bamboo = new Plant();
+  eagle.eatPlant(bamboo);
+  assertEquals(0, eagle.foodCount());
+}
+
+@Test
+public void canEatMeat() {
+  Bird eagle = new Bird("Billy", 4, Classification.CARNIVORE, 50);
+  Meat rabbit = new Meat();
+  eagle.eatMeat(rabbit);
+  assertEquals(1, eagle.foodCount());
+}
+
+@Test
+public void canNotEatPlantAndMeat() {
+  Mammal bear = new Mammal("John", 2, Classification.OMNIVORE, 400);
+  Plant bamboo = new Plant();
+  Meat rabbit = new Meat();
+  bear.eatPlant(bamboo);
+  bear.eatMeat(rabbit);
+  assertEquals(2, bear.foodCount());
 }
 
 }

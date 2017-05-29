@@ -38,11 +38,10 @@ public class Enclosure {
     }
   }
 
-  public String addNewAnimal(Animal animal, Animal newAnimal) {
+  public void addNewAnimal(Animal animal, Animal newAnimal) {
     if(animal.getClassification().equals(newAnimal.getClassification())) {
       this.animals.add(newAnimal);
     }
-      return "You can't put different classification animals to the same enclosure. Add a new enclosure.";
   }
 
   public void removeAnimal(Animal animal) {

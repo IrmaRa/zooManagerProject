@@ -47,7 +47,8 @@ public class EnclosureTest {
   @Test
   public void canCheckIfAnimalsCanStayTogetherNegativeExample1() {
     enclosure.addFirstAnimal(zebra);
-    assertEquals("You can't put different classification animals to the same enclosure. Add a new enclosure.", enclosure.addNewAnimal(zebra, lion));
+    enclosure.addNewAnimal(zebra, lion);
+    assertEquals(1, enclosure.animalCount());
   }
 
   @Test
