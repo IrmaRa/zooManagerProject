@@ -33,10 +33,16 @@ public class EnclosureTest {
     assertEquals(0, enclosure.animalCount());
   }
 
+  @Test 
+  public void canAddFirstAnimal() {
+    enclosure.addAnimal(zebra);
+    assertEquals(1, enclosure.animalCount());
+  }
+
   @Test
   public void canRemoveAnimal() {
     Enclosure enclosure = new Enclosure(500, Type.RAINFOREST);
-    enclosure.addFirstAnimal(zebra);
+    enclosure.addAnimal(zebra);
     enclosure.removeAnimal(zebra);
     assertEquals(0, enclosure.animalCount());
   }
@@ -44,43 +50,37 @@ public class EnclosureTest {
   @Test
   public void canRemoveAnimalByName() {
     Enclosure enclosure = new Enclosure(500, Type.RAINFOREST);
-    enclosure.addFirstAnimal(zebra);
+    enclosure.addAnimal(zebra);
     enclosure.removeAnimalByName("Bob");
     assertEquals(0, enclosure.animalCount());
   }
 
-  @Test 
-  public void canAddFirstAnimal() {
-    enclosure.addFirstAnimal(zebra);
-    assertEquals(1, enclosure.animalCount());
-  }
-
   @Test
   public void canCheckIfAnimalsCanStayTogetherPositiveExample() {
-    enclosure.addFirstAnimal(zebra);
-    enclosure.addNewAnimal(zebra, koala);
+    enclosure.addAnimal(zebra);
+    enclosure.addAnimal(koala);
     assertEquals(2, enclosure.animalCount());
   }
 
   @Test
   public void canCheckIfAnimalsCanStayTogetherNegativeExample() {
-    enclosure.addFirstAnimal(zebra);
-    enclosure.addNewAnimal(zebra, lion);
+    enclosure.addAnimal(zebra);
+    enclosure.addAnimal(lion);
     assertEquals(1, enclosure.animalCount());
   }
 
   // tested if method works, commented out because returns random result
   // @Test
   // public void canGetEscapedAnimal() {
-  //   enclosure.addFirstAnimal(zebra);
-  //   enclosure.addNewAnimal(zebra, koala);
+  //   enclosure.addAnimal(zebra);
+  //   enclosure.addAnimal(koala);
   //   assertEquals("Bob", enclosure.getEscapedAnimal().getName());
   // }
 
   @Test
   public void canRemoveEscapedAnimalFromEnclosure() {
-    enclosure.addFirstAnimal(zebra);
-    enclosure.addNewAnimal(zebra, koala);
+    enclosure.addAnimal(zebra);
+    enclosure.addAnimal(koala);
     enclosure.getEscapedAnimal();
     assertEquals(1, enclosure.animalCount());
   }

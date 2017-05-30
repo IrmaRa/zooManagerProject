@@ -30,14 +30,13 @@ public class Enclosure {
     return this.animals.size();
   }
 
-  public void addFirstAnimal(Animal animal) {
-    if(this.animals.size() == 0) {
-      this.animals.add(animal);
-    }
-  }
 
-  public void addNewAnimal(Animal animal, Animal newAnimal) {
-    if(animal.getClassification().equals(newAnimal.getClassification())) {
+  public void addAnimal(Animal newAnimal) {
+    if(this.animals.size() == 0) {
+      this.animals.add(newAnimal);
+      return;
+    }
+    if(this.animals.get(0).getClassification().equals(newAnimal.getClassification())) {
       this.animals.add(newAnimal);
     }
   }
