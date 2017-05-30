@@ -38,14 +38,11 @@ public abstract class Animal {
     return this.belly.size();
   }
 
-  public void eatPlant(Edible food) {
-    if(this.classification.equals(Classification.HERBIVORE) || this.classification.equals(Classification.OMNIVORE)) {
-      this.belly.add(food);
-    }
-  }
+  public void eat(Edible food) {
+    String foodType = food.getType();
+    String animalFoodType = this.classification.getFoodType();
 
-  public void eatMeat(Edible food) {
-    if(this.classification.equals(Classification.CARNIVORE) || this.classification.equals(Classification.OMNIVORE)) {
+    if(animalFoodType.equals(foodType)) {
       this.belly.add(food);
     }
   }

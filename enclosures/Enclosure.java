@@ -8,16 +8,14 @@ public class Enclosure {
   private ArrayList<Animal> animals;
   private int size;
   private Type type;
-  private Random randomGenerator = new Random();
+  private Random randomGenerator;
 
   public Enclosure(int size, Type type) {
     this.animals = new ArrayList<Animal>();
     this.size = size;
     this.type = type;
-  }
+    this.randomGenerator = new Random();
 
-  public ArrayList<Animal> getAnimals() {
-    return this.animals;
   }
 
   public int getSize() {
@@ -64,5 +62,5 @@ public class Enclosure {
     this.animals.remove(escapedAnimal);
     return escapedAnimal;
   } 
-
+  
 }

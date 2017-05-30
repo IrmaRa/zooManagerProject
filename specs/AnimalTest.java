@@ -41,45 +41,37 @@ public void canCountFoodInBelly() {
 public void canEatPlant() {
   Mammal koala = new Mammal("Sarah", 1, Classification.HERBIVORE, 200);
   Plant bamboo = new Plant();
-  koala.eatPlant(bamboo);
+  koala.eat(bamboo);
   assertEquals(1, koala.foodCount());
 }
 
 @Test
 public void canNotEatPlant() {
-  Bird lion = new Bird("George", 7, Classification.CARNIVORE, 500);
+  Mammal lion = new Mammal("Michael", 3, Classification.CARNIVORE, 500);
   Plant bamboo = new Plant();
-  eagle.eatPlant(bamboo);
-  assertEquals(0, eagle.foodCount());
+  lion.eat(bamboo);
+  assertEquals(0, lion.foodCount());
 }
 
 @Test
 public void canEatMeat() {
-  Bird lion = new Bird("George", 7, Classification.CARNIVORE, 500);
+  Mammal lion = new Mammal("Michael", 3, Classification.CARNIVORE, 500);
   Meat rabbit = new Meat();
-  eagle.eatMeat(rabbit);
-  assertEquals(1, eagle.foodCount());
+  lion.eat(rabbit);
+  assertEquals(1, lion.foodCount());
 }
 
-@Test
-public void canNotEatPlantAndMeat() {
-  Mammal bear = new Mammal("John", 2, Classification.OMNIVORE, 400);
-  Plant bamboo = new Plant();
-  Meat rabbit = new Meat();
-  bear.eatPlant(bamboo);
-  bear.eatMeat(rabbit);
-  assertEquals(2, bear.foodCount());
-}
 
 @Test
 public void canEmptyBelly() {
-  Mammal bear = new Mammal("John", 2, Classification.OMNIVORE, 400);
-  Plant bamboo = new Plant();
+  Mammal bear = new Mammal("John", 2, Classification.CARNIVORE, 400);
+  Meat steak = new Meat();
   Meat rabbit = new Meat();
-  bear.eatPlant(bamboo);
-  bear.eatMeat(rabbit);
+  bear.eat(steak);
+  bear.eat(rabbit);
   bear.sleep();
   assertEquals(0, bear.foodCount());
 }
+
 
 }
