@@ -38,9 +38,13 @@ public abstract class Animal {
     return this.belly.size();
   }
 
+  public String getAnimalFoodType() {
+    return this.classification.getFoodType();
+  }
+
   public void eat(Edible food) {
     String foodType = food.getType();
-    String animalFoodType = this.classification.getFoodType();
+    String animalFoodType = getAnimalFoodType();
 
     if(animalFoodType.equals(foodType)) {
       this.belly.add(food);

@@ -19,24 +19,20 @@ public class ZooKeeper {
 
   public void getFood(Edible food) {
    this.basket.add(food);
- }
+ }  
 
  public int basketCount() {
   return this.basket.size();
 }
 
-// public void feedMeatEater(Animal animal, Meat meat) {
-//   if (basketCount() > 0 &&  animal.eatMeat(meat)) {  
-   
-//     this.basket.remove(meat);
-//   }
-// }
+public void feedAnimal(Animal animal, Edible food) {
+  String foodType = food.getType();
+  String animalFoodType = animal.getAnimalFoodType();
 
-// public void feedPlantEater(Animal animal, Plant plant) {
-//   if (basketCount() > 0 && animal.eatPlant(plant)) {
-    
-//     this.basket.remove(plant);
-//   }
-// }
+  if (basketCount() > 0 && animalFoodType.equals(foodType)) { 
+    this.basket.remove(food);
+  }
+}
+
 
 }
