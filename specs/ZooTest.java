@@ -9,16 +9,18 @@ import animals.*;
 public class ZooTest {
 
   Zoo zoo;
-  Visitor adultVisitor;
-  Visitor kidVisitor;
+  Visitor adult;
+  Visitor kid;
+  Visitor pensioner;
   Mammal koala;
   Enclosure enclosure;
 
   @Before 
   public void before() {
     zoo = new Zoo();
-    adultVisitor = new Visitor(25);
-    kidVisitor = new Visitor(5);
+    adult = new Visitor(25);
+    kid = new Visitor(5);
+    pensioner = new Visitor(67);
     koala = new Mammal("Sarah", 1, Classification.HERBIVORE, 200);
     enclosure = new Enclosure(1000, Type.BUSH);
   }
@@ -35,13 +37,19 @@ public class ZooTest {
 
   @Test
   public void canSellTicket() {
-    zoo.sellTicket(adultVisitor);
+    zoo.sellTicket(adult);
     assertEquals(15, zoo.getIncome());
   }
 
   @Test
-  public void canSellTicketButNotCharge() {
-    zoo.sellTicket(kidVisitor);
+  public void canSellTicketButNotCharge1() {
+    zoo.sellTicket(kid);
+    assertEquals(0, zoo.getIncome());
+  }
+
+  @Test
+  public void canSellTicketButNotCharge2() {
+    zoo.sellTicket(pensioner);
     assertEquals(0, zoo.getIncome());
   }
 
@@ -54,22 +62,22 @@ public class ZooTest {
 
   @Test
   public void canAddVisitor() {
-    zoo.sellTicket(adultVisitor);
-    zoo.sellTicket(kidVisitor);
+    zoo.sellTicket(adult);
+    zoo.sellTicket(kid);
     assertEquals(2, zoo.visitorCount());
   }
 
   @Test
   public void canRemoveVisitor() {
-    zoo.sellTicket(adultVisitor);
-    zoo.sellTicket(kidVisitor);
-    zoo.removeVisitor(kidVisitor);
+    zoo.sellTicket(adult);
+    zoo.sellTicket(kid);
+    zoo.removeVisitor(kid);
     assertEquals(1, zoo.visitorCount());
   }
 
   @Test
   public void canDecreaseTicketsNumberAfterSellingOne() {
-    zoo.sellTicket(adultVisitor);
+    zoo.sellTicket(adult);
     assertEquals(99, zoo.getTickets());
   }
 
@@ -93,7 +101,7 @@ public class ZooTest {
   public void canGetTotalIncome() {
     enclosure.addAnimal(koala);
     zoo.sellBabyAnimal(koala, enclosure);
-    zoo.sellTicket(adultVisitor);
+    zoo.sellTicket(adult);
     assertEquals(215, zoo.getIncome());
   }
 

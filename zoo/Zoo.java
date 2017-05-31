@@ -32,7 +32,7 @@ public class Zoo {
   }
 
   public void sellTicket(Visitor visitor) {
-    if(visitor.getAge() > 10 && this.tickets != 0) {
+    if(visitor.getAge() > 10 && visitor.getAge() < 65 && this.tickets != 0) {
       this.income += this.entryFee;
     }
     this.visitors.add(visitor);
