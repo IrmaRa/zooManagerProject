@@ -46,4 +46,19 @@ public class ZooKeeperTest {
     assertEquals(1, zooKeeper.basketCount());
   }
 
+  @Test
+  public void animalsBellyIsFullAfterFeeding() {
+    zooKeeper.getFood(bamboo);
+    zooKeeper.feedAnimal(zebra, bamboo);
+    assertEquals(1, zebra.foodCount());
+  }
+
+  @Test 
+  public void animalsBellyIsNotFullAfterFeedingWrongFood() {
+    zooKeeper.getFood(bamboo);
+    zooKeeper.feedAnimal(eagle, bamboo);
+    assertEquals(0, eagle.foodCount());
+  }
+
+
 }

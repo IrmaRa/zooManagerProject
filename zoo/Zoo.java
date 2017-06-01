@@ -55,11 +55,11 @@ public class Zoo {
     return this.enclosures.size();
   } 
 
-  public void sellBabyAnimal(Animal animal, Enclosure enclosure) {
-   if(animal.getAge() <= 1) {
-    this.income += animal.getPrice();
-    enclosure.removeAnimal(animal);
+  public void sellBabyAnimal(Animal animal, Enclosure enclosure){
+    if(animal.getAge() <= 1){
+      this.income += animal.getPrice();
+      enclosure.removeAnimal(animal);
+    }
   }
-}
 
 }
